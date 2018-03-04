@@ -1,4 +1,4 @@
-CREATE PROCEDURE [dbo].[Supprimer_Modele] @m_Modele TypeModele,
+CREATE PROCEDURE [dbo].[Rehabiliter_Modele] @m_Modele TypeModele,
 								 @message varchar(200) output	
 as
 declare @code_retour int;
@@ -19,9 +19,9 @@ declare @code_retour int;
 		else
 			begin
 				update MODELE
-				set Supprimée = 1
+				set Supprimée = 0
 				where Modele = @m_Modele;
-				set @message = 'Le Modèle ' + CONVERT (varchar(10),@m_Modele) + ' a été supprimée'
+				set @message = 'Le Modèle ' + CONVERT (varchar(10),@m_Modele) + ' a été réhabilité'
 				set @code_retour = 0
 				
 			end
